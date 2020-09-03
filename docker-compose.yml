@@ -1,15 +1,15 @@
 version: '3.7'
 services:
-#  web_hello:
-#    build: ./qa
-#    volumes:
-#    - ./hello_wsgi:/app
-#    command: gunicorn --config=hello_gunicorn_conf.py hello_app:app
-#
-##    ports:
-##      - 8080:8080
-#    expose:
-#      - 8080
+  web_hello:
+    build: ./qa
+    volumes:
+    - ./hello_wsgi:/app
+    command: gunicorn --config=hello_gunicorn_conf.py hello_app:app
+
+#    ports:
+#      - 8080:8080
+    expose:
+      - 8080
 
   web_django:
     build: ./qa
@@ -28,5 +28,5 @@ services:
     ports:
     - 8081:80
     depends_on:
-#      - web_hello
+      - web_hello
       - web_django
