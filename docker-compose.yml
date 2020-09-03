@@ -1,9 +1,32 @@
 version: '3.7'
 services:
-  web:
+#  web_hello:
+#    build: ./qa
+#    volumes:
+#    - ./hello_wsgi:/app
+#    command: gunicorn --config=hello_gunicorn_conf.py hello_app:app
+#
+##    ports:
+##      - 8080:8080
+#    expose:
+#      - 8080
+
+  web_django:
     build: ./qa
     volumes:
-    - ./hello_wsgi:/app
-    command: gunicorn --config=hello_gunicorn_conf.py hello_app:app
+      - ~/PycharmProjects/ask:/app
+    command: gunicorn --config=./ask/ask_gunicorn_conf.py ask.wsgi:application
+    #    ports:
+    #      - 8080:8080
+    expose:
+      - 8000
+
+  nginx:
+    build: ./nginx
+    volumes:
+    - ./nginx:/etc/nginx/conf.d
     ports:
-      - 8080:8080
+    - 8081:80
+    depends_on:
+#      - web_hello
+      - web_django
