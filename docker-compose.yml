@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+  web:
+    build: ./qa
+    volumes:
+    - ./hello_wsgi:/app
+    command: gunicorn --config=hello_gunicorn_conf.py hello_app:app
+    ports:
+      - 8080:8080
