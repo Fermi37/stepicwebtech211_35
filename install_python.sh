@@ -1,7 +1,10 @@
 sudo apt-get update
-sudo apt-get install -y python3.7
+sudo apt install -y software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+sudo apt-get install -y python3.8
 sudo unlink /usr/bin/python3
-sudo ln -s /usr/bin/python3.7 /usr/bin/python3
-sudo pip3 install --upgrade pip
-sudo pip3 install --upgrade django
-sudo pip3 install --upgrade gunicorn
+sudo ln -s /usr/bin/python3.8 /usr/bin/python3
+sudo python3 pip install --upgrade pip
+sudo python3 pip install --upgrade django
+sudo python3 pip install --upgrade gunicorn
