@@ -5,6 +5,13 @@ sudo apt update
 sudo apt install python3.5
 sudo unlink /usr/bin/python3
 sudo ln -s /usr/bin/python3.5 /usr/bin/python3
-sudo python3 pip install --upgrade pip
-sudo python3 pip install --upgrade django
-sudo python3 pip install --upgrade gunicorn
+sudo pip3 install --upgrade pip
+sudo pip3 install --upgrade gunicorn
+
+
+#virtualenv -p python3 myvenv
+#source myvenv/bin/activate
+#pip3 install django
+#pip3 install gunicorn
+#sudo pip3 install --upgrade pip
+#pip install -U pip
